@@ -1,0 +1,11 @@
+{% if bitacoras is empty %}
+<tr><td colspan="4"><h1>Sin registros existentes.</h1></td></tr>
+{% endif %}
+{% for bitacora in bitacoras %}
+    <tr>
+        <td>{{ bitacora.nomusr }}</td>
+        <td>{{ bitacora.Bitacora_fchcrea }}</td>
+        <td>{{ bitacora.Bitacora_accion }}</td>
+        <td>{{ bitacora.Bitacora_detalle }}</td>
+    </tr>
+{% endfor %}

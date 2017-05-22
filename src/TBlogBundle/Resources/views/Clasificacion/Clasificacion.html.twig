@@ -1,0 +1,59 @@
+
+
+{% extends'::base.html.twig' %}
+{% block contenido %}
+    <div align="center">
+        <table align="center" id="table">
+            <tr><td colspan="3" align="center"><h2>Clasificación</h2></td></tr>
+            <tr><td colspan="3">Nombre de la clasificación:</td></tr>
+            <tr><td colspan="3"><input type="text" class="form-control" id="nombreclasificacion" name="nombreclasificacion" placeholder="Nombre de la clasificación"></td></tr>
+            <tr><td colspan="3"><input type="hidden" class="form-control" id="idclasificacion" name="idclasificacion" placeholder="idclasificacion"></td></tr>
+            <tr align="center">
+                <td><input type="button" id="boton" name="boton" value="Agregar"></td>
+                <td><input type="button" id="boton" name="boton" value="Guardar"></td>
+            </tr>
+        </table>
+    </div>
+    <div align="center">
+        <table border="1">
+            <thead>
+                <th>Nombre de la clasificación</th>
+                <th>Acciones</th>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+            $("#tbody").load("{{ path('LlenatablaClasificacion') }}");
+            $("input[type=button]").click(function () {
+                var btn = $(this).val();
+                if($("#nombreclasificacion").val() == "")
+                    alert("Llene todos los campos");
+                else {
+                    $.ajax({
+                        url: "{{ path('OperacionesSQL') }}",
+                        type: 'POST',
+                        data: $(".form-control").serialize()+"&btn="+btn,
+                        success: function (data) {
+                            if($.trim(data) == 1){
+                                alert("Operación completa.");
+                                $("#tbody").load("{{ path('LlenatablaClasificacion') }}");
+                                document.getElementById('nombreclasificacion').value = "";
+                                document.getElementById('idclasificacion').value = "";
+                            } else{
+                                alert("No se puede realizar la operación.");
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+{% endblock %}

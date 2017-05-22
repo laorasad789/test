@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+
+{% block contenido %}
+    <input type="text" class="form-control" id="nombreusuario" name="nombreusuario" placeholder="Nombre del usuario a buscar" onkeyup="Llenatabla(this.value)"/>
+    <table align="center" border="1">
+        <thead>
+            <th>Nombre de usuario</th>
+            <th>fecha</th>
+            <th>Acción</th>
+            <th>Detalle</th>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script>
+    $(document).ready(function () {
+        $("tbody").load("{{ path('LlenatablaBitacora') }}");
+    });
+    function Llenatabla(nombre){
+        $.ajax({
+            url: "{{ path('LlenatablaBitacora') }}",
+            type: "POST",
+            data: "nombre="+nombre,
+            success: function (data) {
+                $("tbody").html(data);
+            }
+        });
+    }
+</script>
+{% endblock %}

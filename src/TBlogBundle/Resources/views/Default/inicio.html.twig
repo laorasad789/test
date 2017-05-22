@@ -1,0 +1,180 @@
+
+<html>
+<head>
+    {% block stylesheets %}
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <!--<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('css/materialize.min.css') }}">
+    {% endblock %}
+
+    {% block javascripts %}
+        <script type="application/javascript" src="{{ asset('js/jquery-3.1.0.js') }}"></script>
+        <script type="application/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
+    {% endblock %}
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8">
+    <title>Inicio</title>
+</head>
+<body bgcolor="	#fff">
+
+<!--<img src="imagenes/cab.jpg" alt="inicio " width="100%" />-->
+
+<style media="screen">
+    .slider .indicators {
+        position: absolute;
+        text-align: center;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0; }
+    .slider .indicators .indicator-item {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        height: 16px;
+        width: 16px;
+        margin: 0 12px;
+        background-color: #e0e0e0;
+        -webkit-transition: background-color .3s;
+        -moz-transition: background-color .3s;
+        -o-transition: background-color .3s;
+        -ms-transition: background-color .3s;
+        transition: background-color .3s;
+        border-radius: 50%; }
+    .slider .indicators .indicator-item.active {
+        background-color: #FFCCCC; }
+</style>
+
+<div class="container"  >
+    <nav class="gray">
+        <ul class="left hide-on-med-and-down">
+            <li><a href="revista.php">Inicio</a></li>
+
+            <li><a href="galeria.php">Articulos</a></li>
+            <li><a href="subira.php">Subir Articulos</a></li>
+            <li><a href="subira.php">Subir Comentarios</a></li>
+            <a href="#" class="brand-logo center"> <img src="imagenes/escudo.jpg" alt="inicio" width="25%" /></a>
+        </ul>
+        <ul id="slide-out" class="side-nav red">
+            <br>
+            <li><a href="#" class="brand-logo center"><img class="responsive-img" src="imagenes/escudo.jpg" alt="" width="65%" /></a></li>
+            <br>
+            <li><a href="revista.php" ><p class="flow-text white-text">
+                        Inicio
+                    </p></a></li>
+            <li><a href="articulos.php">Articulos</a></li>
+            <li><a href="galeria.php">Galeria</a></li>
+            <li><a href="subira.php">Subir Articulos</a></li>
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    </nav>
+    <script type="text/javascript">
+        $(".button-collapse").sideNav();
+    </script>
+
+    <br>
+
+    <div class="slider">
+        <ul class="slides">
+            <li>
+
+
+
+                <img  class="responsive-img" src="imagenes/d.jpg"  /> <!-- random image -->
+                <div class="caption center-align">
+                    <h3>Instituto Tecnologico</h3>
+                    <h5 class="light grey-text text-lighten-3"></h5>
+                </div>
+            </li>
+            <li>
+                <img  class="responsive-img" src="imagenes/g.jpg"  /> <!-- random image -->
+                <div class="caption left-align">
+                    <h3>Egresados</h3>
+                    <h5 class="light grey-text text-lighten-3"></h5>
+                </div>
+            </li>
+            <li>
+                <img  class="responsive-img" src="imagenes/f.jpg"  /> <!-- random image -->
+                <div class="caption right-align">
+                    <h3>Edificio</h3>
+                    <h5 class="light grey-text text-lighten-3"></h5>
+                </div>
+            </li>
+            <li>
+                <img  class="responsive-img" src="imagenes/b.jpg"  /><!-- random image -->
+                <div class="caption center-align">
+                    <h3>Mural</h3>
+                    <h5 class="light grey-text text-lighten-3"></h5>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--
+      <div  class="card-panel" align="center"  >
+         <span class="blue-text text-darken-2"  > <h3>Bienvenidos</h3> </span>
+      </div>
+    -->
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.slider').slider({full_width: true});
+        });
+    </script>
+
+</body>
+
+<style media="screen">
+
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    main {
+        flex: 1 0 auto;
+    }
+
+
+</style>
+
+<footer class="page-footer " >
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s6">
+
+                <div class="container" align="left">
+                    <h5 class="white-text">Contacto </h5>
+                    <table>
+                        <tr>
+                            <h6 class="white-text"> tel:4612013651</h6>
+                        </tr>
+                    </table>
+                    <div class="container">
+                    </div>
+                </div>
+            </div>
+            <div class="container" align="right">
+                <div class="col l6  s6">
+                    <h5 class="white-text">Redes Sociales</h5>
+
+                    <table>
+                        <tr>
+                            <td><a href="https://www.facebook.com/Celaya.Guanajuato/"><img src="imagenes/Facebook.png" alt="Facebook" /></a></td><td>  &nbsp &nbsp  </td>
+                            <td><a href="https://twitter.com/turismocelay"><img src="imagenes/Twitter.png" alt="Twitter" /></a></td><td>&nbsp &nbsp</td>
+                            <td><a href="https://www.instagram.com/municipiocelaya/"><img src="imagenes/instagram.png" alt="Instagram" width="43" /></a></td>
+                            <td><a href="https://www.youtube.com/channel/UCy0EZLCcf_xfZtz3SKwp9cQ"><img src="imagenes/Youtube.png" alt="Youtube" /></a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>

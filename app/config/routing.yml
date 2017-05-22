@@ -1,0 +1,5 @@
+t_blog:
+    resource: "@TBlogBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
